@@ -38,4 +38,4 @@
 ## 6. Cierre del change
 
 - [x] 6.1 `openspec validate add-pricing-domain --strict` sin errores
-- [ ] 6.2 Confirmar con el usuario y archivar el change con `/opsx:archive` (consolida la spec en `openspec/specs/pricing-engine/`)
+- [x] 6.2 Confirmar con el usuario y archivar el change con `/opsx:archive` (consolida la spec en `openspec/specs/pricing-engine/`)

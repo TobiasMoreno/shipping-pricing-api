@@ -1,0 +1,10 @@
+.git
+.gitignore
+bin/
+*.exe
+*.md
+.env
+openspec/
+.claude/
+deployments/
+docker-compose.yml

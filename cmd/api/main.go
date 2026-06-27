@@ -15,6 +15,8 @@ import (
 	"github.com/TobiasMoreno/shipping-pricing-api/internal/config"
 	"github.com/TobiasMoreno/shipping-pricing-api/internal/handlers"
 	"github.com/TobiasMoreno/shipping-pricing-api/internal/server"
+	"github.com/TobiasMoreno/shipping-pricing-api/internal/services"
+	"github.com/TobiasMoreno/shipping-pricing-api/internal/services/memory"
 )
 
 const shutdownTimeout = 10 * time.Second
@@ -35,7 +37,13 @@ func run() error {
 	logger := newLogger(cfg.LogLevel)
 
 	health := handlers.NewHealthRegistry()
-	router := server.NewRouter(health)
+
+	// In-memory repositories with seed data; replaced by PostgreSQL in a later change.
+	zones, rules, promotions := memory.Seed()
+	quoteService := services.NewQuoteService(rules, zones, promotions)
+	shippingHandler := handlers.NewShippingHandler(quoteService)
+
+	router := server.NewRouter(health, shippingHandler)
 	srv := server.NewHTTPServer(fmt.Sprintf(":%d", cfg.HTTPPort), router)
 
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)

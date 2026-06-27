@@ -40,4 +40,4 @@
 - [x] 7.2 `go run ./cmd/api` levanta y `curl localhost:8080/health` responde `{"status":"ok"}` (o equivalente con PowerShell `Invoke-RestMethod`)
 - [x] 7.3 `docker compose config` valida el compose
 - [x] 7.4 `openspec validate add-http-skeleton --strict` sin errores
-- [ ] 7.5 Confirmar con el usuario y archivar el change
+- [x] 7.5 Confirmar con el usuario y archivar el change

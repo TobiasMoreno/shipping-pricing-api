@@ -36,4 +36,4 @@
 - [x] 6.1 `go vet ./...` y `go test ./...` en verde
 - [x] 6.2 Levantar `go run ./cmd/api` y probar `POST /shipping/quote` con un request válido (200 + breakdown) y uno inválido (400/422)
 - [x] 6.3 `openspec validate add-quote-endpoint --strict` sin errores
-- [ ] 6.4 Confirmar con el usuario y archivar el change
+- [x] 6.4 Confirmar con el usuario y archivar el change
